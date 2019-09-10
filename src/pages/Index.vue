@@ -34,10 +34,26 @@
         </q-carousel-slide>
       </q-carousel>
     </q-dialog>
+    <q-input v-model="rm" label="Informe sua credenciais" placeholder="Ex: 0123456" hint="Digite seu R.M" :dense="dense" />
+    <q-input v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Informe sua senha">
+      <template v-slot:append>
+        <q-icon
+          :name="isPwd ? 'visibility_off' : 'visibility'"
+          class="cursor-pointer"
+          @click="isPwd = !isPwd"
+        />
+      </template>
+    </q-input>
+    <q-btn color="white" text-color="balck" id="button" icon="logout" label="Acessar" />
   </q-page>
 </template>
-
-<style>
+<style lang="stylus">
+#button {
+  margin-top -100px
+  margin-left 10px
+  margin-right 10px
+  width 90%
+}
 </style>
 
 <script>
@@ -45,6 +61,8 @@ export default {
   name: 'PageIndex',
   data () {
     return {
+      rm: '',
+      password: '',
       carousel: false,
       card: false,
       sliders: false,
@@ -58,7 +76,9 @@ export default {
 
       slideVol: 39,
       slideAlarm: 56,
-      slideVibration: 63
+      slideVibration: 63,
+      isPwd: true,
+      dense: false
     }
   },
   mounted () {
