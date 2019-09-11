@@ -49,7 +49,8 @@ module.exports = function (ctx) {
         'QDialog',
         'QCarousel',
         'QCarouselSlide',
-        'QChatMessage'
+        'QChatMessage',
+        'QForm'
       ],
 
       directives: [

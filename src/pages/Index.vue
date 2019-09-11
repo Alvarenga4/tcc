@@ -1,5 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page id="body" class="flex flex-center">
+
     <q-dialog v-model="carousel">
       <q-carousel
         transition-prev="slide-right"
@@ -34,24 +35,44 @@
         </q-carousel-slide>
       </q-carousel>
     </q-dialog>
-    <q-input v-model="rm" label="Informe sua credenciais" placeholder="Ex: 0123456" hint="Digite seu R.M" :dense="dense" />
-    <q-input v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Informe sua senha">
-      <template v-slot:append>
-        <q-icon
-          :name="isPwd ? 'visibility_off' : 'visibility'"
-          class="cursor-pointer"
-          @click="isPwd = !isPwd"
-        />
-      </template>
-    </q-input>
-    <q-btn color="white" text-color="balck" id="button" icon="logout" label="Acessar" />
+
+    <form id="form">
+      <div id="header">
+        <img alt="e-Teaching logo" src="../statics/logo.jpg" width="300" height="300">
+      </div>
+      <q-input type="number" v-model="rm" label="Informe sua credenciais" placeholder="R.M" hint="Digite seu R.M" :dense="dense" />
+      <q-input v-model="password" :type="isPwd ? 'password' : 'text'" hint="Informe sua senha">
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            placeholder="Password"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
+      <q-btn color="white" text-color="black" id="button" icon="logout" label="Acessar" />
+    </form>
+
   </q-page>
 </template>
 <style lang="stylus">
+#body {
+  background-color #8e0606
+  height 100%
+  margin 0px
+  padding 0
+}
+#form {
+  background-color #FFF
+  height 100%
+  padding-left 20px
+  padding-right 20px
+  padding-bottom 40px
+  border-radius 10px
+  box-shadow: 0 0 4em #4c4c4c;
+}
 #button {
-  margin-top -100px
-  margin-left 10px
-  margin-right 10px
   width 90%
 }
 </style>
@@ -68,7 +89,7 @@ export default {
       sliders: false,
 
       slide: 1,
-      bemvindo: 'Olá! Seja bem vindo ao sistema educacional e-Teaching! Uma plataforma totalmente resposiva e interativa.',
+      bemvindo: 'Olá! Seja bem vindo ao sistema educacional e-Teaching, uma plataforma totalmente resposiva e interativa.',
       atividade: 'Aqui você terá uma experiencia única com professores, alunos e equipe acaemica para te auxiliarem no que for preciso.',
       acesso: 'Solicite um acesso agora mesmo a secretaria acadêmica de sua escola e bora pros estudos!',
 
