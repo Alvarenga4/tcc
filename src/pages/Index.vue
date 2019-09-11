@@ -24,7 +24,7 @@
         <q-carousel-slide :name="2" class="column no-wrap flex-center">
           <q-icon name="book" color="primary" size="56px" />
           <div class="q-mt-md text-center">
-            {{ atividade }}
+            {{ atividade }} -  teste
           </div>
         </q-carousel-slide>
         <q-carousel-slide :name="3" class="column no-wrap flex-center">
