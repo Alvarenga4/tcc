@@ -50,7 +50,9 @@ module.exports = function (ctx) {
         'QCarousel',
         'QCarouselSlide',
         'QChatMessage',
-        'QForm'
+        'QForm',
+        'QToggle',
+        'QMarkupTable'
       ],
 
       directives: [

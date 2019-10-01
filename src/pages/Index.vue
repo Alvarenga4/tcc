@@ -76,7 +76,6 @@
   width 90%
 }
 </style>
-
 <script>
 export default {
   name: 'PageIndex',
