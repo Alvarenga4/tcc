@@ -27,13 +27,13 @@
       content-class="bg-grey-2"
     >
       <q-list>
-        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
+        <q-item clickable tag="a" target="_blank" @click="$router.replace('/registro')">
           <q-item-section avatar>
-            <q-icon name="public" />
+            <q-icon name="person" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
+            <q-item-label>Cadastro de usuário</q-item-label>
+            <q-item-label caption>Cadastro de usuário</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>

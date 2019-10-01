@@ -6,6 +6,17 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') }
     ]
+  },
+  {
+    path: '/app',
+    component: () => import('layouts/MenuLeft.vue'),
+    children: [
+      {
+        path: '/registro',
+        name: 'registro',
+        component: () => import('pages/Cadastro.vue')
+      }
+    ]
   }
 ]
 

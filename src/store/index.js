@@ -15,6 +15,10 @@ export default function (/* { ssrContext } */) {
     modules: {
       // example
     },
+    state: {
+      url: 'http://192.168.137.22:3333/',
+      timeout: '6000'
+    },
 
     // enable strict mode (adds overhead!)
     // for dev mode only
