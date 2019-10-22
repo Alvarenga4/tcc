@@ -52,7 +52,12 @@ module.exports = function (ctx) {
         'QChatMessage',
         'QForm',
         'QToggle',
-        'QMarkupTable'
+        'QMarkupTable',
+        'QAvatar',
+        'QCard',
+        'QCardActions',
+        'QImg',
+        'QSelect'
       ],
 
       directives: [
@@ -62,7 +67,12 @@ module.exports = function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Dialog',
+        'Notify',
+        'Loading',
+        'LocalStorage',
+        'SessionStorage',
+        'Cookies'
       ]
     },
 

@@ -16,7 +16,7 @@ export default function (/* { ssrContext } */) {
       // example
     },
     state: {
-      url: 'http://192.168.137.22:3333/',
+      url: 'http://192.81.208.226:3333',
       timeout: '6000'
     },
 

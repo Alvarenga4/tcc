@@ -1,35 +1,35 @@
-<template>
-  <div class="caixa q-pa-md">
+<template class="template">
+  <div class="caixa">
+    <div class="header"></div>
     <form class="form">
-
-      <div class="titutlo"> Dados Pesoais </div>
+      <div class="titulo"> Dados Pesoais </div>
       <div class="q-gutter-md row items-start">
-        <q-input type="text" v-model="nomecompleto" label="Nome" placeholder="Nome" hint="Digite seu nome"  />
-        <q-input type="text" v-model="email" label="Email" placeholder="Email" hint="Digite seu email"  />
-        <q-input type="text" v-model="cpf" label="CPF" mask="###.###.###-##" placeholder="Informe seu CPF" hint="Digite seu CPF"  />
-        <q-input type="text" v-model="rg" label="RG" placeholder="RG" hint="Digite seu RG"  />
-        <q-input type="text" v-model="orgaoemissor" label="Orgão Emissor" placeholder="Digite o Orgão Emissor" hint="Digite o Orgão Emissor"  />
-        <q-input type="password" v-model="password" label="Digite uma senha" placeholder="Senha" hint="Informe uma senha"  />
+        <q-input dark outlined class="col-5" type="text" v-model="nomecompleto" label="Nome" placeholder="Nome" hint="Digite seu nome"  />
+        <q-input dark outlined class="col-5" type="text" v-model="email" label="Email" placeholder="Email" hint="Digite seu email"  />
+        <q-input dark outlined class="col-5" type="text" v-model="cpf" label="CPF" placeholder="Informe seu CPF" hint="Digite seu CPF"  />
+        <q-input dark outlined class="col-5" type="text" v-model="rg" label="RG" placeholder="RG" hint="Digite seu RG"  />
+        <q-input dark outlined class="col-5" type="text" v-model="orgaoemissor" label="Orgão Emissor" placeholder="Digite o Orgão Emissor" hint="Digite o Orgão Emissor"  />
+        <q-input dark outlined class="col-5" type="password" v-model="password" label="Digite uma senha" placeholder="Senha" hint="Informe uma senha"  />
       </div>
 
-      <div class="titutlo"> Endereço </div>
+      <div class="titulo"> Endereço </div>
       <div class="q-gutter-md row items-start">
-        <q-input type="text" v-model="cep" label="CEP" placeholder="CEP" hint="Informe seu CEP"  />
-        <q-input type="text" v-model="logradouro" label="Logradouro" placeholder="Logradouro" hint="Informe seu Logradouro"  />
-        <q-input type="text" v-model="bairro" label="Bairro" placeholder="Bairro" hint="Informe seu bairro"  />
-        <q-input type="text" v-model="numero" label="Número" placeholder="Número" hint="Número da residencia"  />
-        <q-input type="text" v-model="complemento" label="Complemento" placeholder="Complemento" hint="Complemento"  />
-        <q-input type="text" v-model="municipio" label="Municipio" placeholder="Municipio" hint="Informe seu municipio"  />
-        <q-input type="text" v-model="estado" label="Estado" placeholder="Estado" hint="Informe seu estado"  />
+        <q-input dark outlined class="col-5" type="text" v-model="cep" label="CEP" placeholder="CEP" hint="Informe seu CEP"  />
+        <q-input dark outlined class="col-5" type="text" v-model="logradouro" label="Logradouro" placeholder="Logradouro" hint="Informe seu Logradouro"  />
+        <q-input dark outlined class="col-5" type="text" v-model="bairro" label="Bairro" placeholder="Bairro" hint="Informe seu bairro"  />
+        <q-input dark outlined class="col-5" type="text" v-model="numero" label="Número" placeholder="Número" hint="Número da residencia"  />
+        <q-input dark outlined class="col-5" type="text" v-model="complemento" label="Complemento" placeholder="Complemento" hint="Complemento"  />
+        <q-input dark outlined class="col-5" type="text" v-model="municipio" label="Municipio" placeholder="Municipio" hint="Informe seu municipio"  />
+        <q-input dark outlined class="col-5" type="text" v-model="estado" label="Estado" placeholder="Estado" hint="Informe seu estado"  />
       </div>
 
-      <div class="titutlo"> Informações Acadêmicas </div>
+      <div class="titulo"> Informações Acadêmicas </div>
       <q-toggle v-model="professor" label="É professor" />
       <div v-if="professor == true" class="q-gutter-md row items-start">
-        <q-input type="text" v-model="formacao" label="Formação Acadêmica" placeholder="Formação" hint="Formação acadêmica"  />
-        <q-input type="text" v-model="faculdade" label="Faculdade" placeholder="Faculdade" hint="Informe sua instituição de ensino"  />
-        <q-input type="text" v-model="anoinicio" label="Inicio" mask="####" placeholder="Ano inicio" hint="Informe o ano de inicio"  />
-        <q-input type="text" v-model="anotermino" label="Termino" mask="####" placeholder="Ano termino" hint="Informe o ano de termino"  />
+        <q-input dark outlined class="col-5" type="text" v-model="formacao" label="Formação Acadêmica" placeholder="Formação" hint="Formação acadêmica"  />
+        <q-input dark outlined class="col-5" type="text" v-model="faculdade" label="Faculdade" placeholder="Faculdade" hint="Informe sua instituição de ensino"  />
+        <q-input dark outlined class="col-5" type="text" v-model="anoinicio" label="Inicio" mask="####" placeholder="Ano inicio" hint="Informe o ano de inicio"  />
+        <q-input dark outlined class="col-5" type="text" v-model="anotermino" label="Termino" mask="####" placeholder="Ano termino" hint="Informe o ano de termino"  />
       </div>
       <q-btn id="cadastrar" class="full-width" @click="register" color="green" text-color="white" label="Cadastrar" />
     </form>
@@ -89,8 +89,8 @@ export default {
     listaUsuario () {
       console.log('Lista-Usuario')
       let configs = {
-        url: this.$store.state.url + 'users',
-        headers: { 'Content-Type': 'application/json' },
+        url: this.$store.state.url + '/users',
+        headers: { 'Authorization': 'Bearer ' + this.$q.localStorage.getItem('user_token') },
         timeout: this.$store.state.timeout,
         method: 'get'
       }
@@ -102,10 +102,13 @@ export default {
       })
     },
     register () {
+      this.$q.loading.show({
+        message: 'Aguarde, registrando dados...'
+      })
       console.log('Register')
       let configs = {
-        url: this.$store.state.url + 'users',
-        headers: { 'Content-Type': 'application/json' },
+        url: this.$store.state.url + '/users',
+        headers: { 'Authorization': 'Bearer ' + this.$q.localStorage.getItem('user_token') },
         method: 'POST',
         data: {
           nome: this.nomecompleto,
@@ -136,8 +139,8 @@ export default {
     },
     deletar (id) {
       let configs = {
-        url: this.$store.state.url + 'users/' + id,
-        headers: { 'Content-Type': 'application/json' },
+        url: this.$store.state.url + '/users/' + id,
+        headers: { 'Authorization': 'Bearer ' + this.$q.localStorage.getItem('user_token') },
         timeout: this.$store.state.timeout,
         method: 'delete'
       }
@@ -149,7 +152,9 @@ export default {
           alert('Usuario deletado com sucesso!')
           this.listaUsuario()
         }
-      })
+      }).catch(error => {
+        console.log(error)
+      }).finallly(() => this.$q.loading.hide())
     }
   }
 }
@@ -160,21 +165,28 @@ export default {
   margin-right 20px
   margin-top 20px
   margin-bottom 20px
+  background-image url('../assets/background.png')
+  background-repeat no-repeat
+  background-size 100%
+  align-items center
+  background-attachment fixed
+  background-position center
 }
 #cadastrar {
   margin-top 20px
   margin-bottom 20px
 }
-.titutlo {
+.titulo {
   width 100%
-  background-color #b8b8b8
+  background-color #2a2a2a
   border-radius 5px
   color #fff
   text-align center
   padding-top 7px
   padding-bottom 7px
   margin-top 30px
-  color #000
   text-transform uppercase
+  opacity 0.7
+  margin-bottom 20px
 }
 </style>
